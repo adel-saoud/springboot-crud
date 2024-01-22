@@ -1,18 +1,17 @@
-package com.example.employee.service;
+package com.decathlon.employee.service;
 
 import java.util.List;
 
+import com.decathlon.employee.model.Employee;
+import com.decathlon.employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.employee.model.Employee;
-import com.example.employee.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
 	
 	@Autowired
-    EmployeeRepository employeeRepository;
+	EmployeeRepository employeeRepository;
 	
 	//CREATE
 	public Employee createEmployee(Employee employee) {

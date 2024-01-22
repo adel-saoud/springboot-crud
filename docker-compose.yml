@@ -1,0 +1,12 @@
+version : "3.9"
+services:
+  BDD:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: "username"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "employee-management"
+      POSTGRES_HOST: "localhost"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - "5432:5432"
