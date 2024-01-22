@@ -12,33 +12,44 @@ import org.springframework.web.bind.annotation.RestController;
 import com.decathlon.employee.model.Employee;
 import com.decathlon.employee.service.EmployeeService;
 
+// Annotating the class as a Spring RestController, which handles HTTP requests and responses
 @RestController
-@RequestMapping("/api")
+
+// Specifying the base URL path for all the endpoints in this controller
+@RequestMapping("/api/v1")
 public class EmployeeController {
+
+	// Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
 	@Autowired
 	EmployeeService employeeService;
-	
-	@RequestMapping(value="/create-employees-by-id", method=RequestMethod.POST)
+
+	// Mapping an HTTP POST request to create a new employee with the given data
+	@RequestMapping(value="/employees", method=RequestMethod.POST)
 	public Employee createEmployee(@RequestBody Employee employee) {
-	    return employeeService.createEmployee(employee);
+		// Delegating the creation of the employee to the employeeService and returning the result
+		return employeeService.createEmployee(employee);
 	}
 
-	@RequestMapping(value="/read-employees", method=RequestMethod.GET)
+	// Mapping an HTTP GET request to retrieve a list of all employees
+	@RequestMapping(value="/employees", method=RequestMethod.GET)
 	public List<Employee> readEmployees() {
-	    return employeeService.getEmployees();
+		// Delegating the retrieval of employees to the employeeService and returning the result
+		return employeeService.getEmployees();
 	}
 
-	@RequestMapping(value="/update-employee-by-id/{empId}", method=RequestMethod.PUT)
-	public Employee updateEmployee(@PathVariable(value = "empId") Long id, @RequestBody Employee employee) {
-	    return employeeService.updateEmployee(id, employee);
+	// Mapping an HTTP PUT request to update an existing employee with the given data
+	@RequestMapping(value="/employees/{employeeId}", method=RequestMethod.PUT)
+	public Employee updateEmployee(@PathVariable(value = "employeeId") Long id, @RequestBody Employee employee) {
+		// Delegating the update operation to the employeeService and returning the updated employee
+		return employeeService.updateEmployee(id, employee);
 	}
-	
-	@RequestMapping(value="/delete-employees-by-id/{empId}", method=RequestMethod.DELETE)
-	public String deleteEmployees(@PathVariable(value = "empId") Long id) {
-	    employeeService.deleteEmployee(id);
+
+	// Mapping an HTTP DELETE request to delete an employee with the specified ID
+	@RequestMapping(value="/employees/{employeeId}", method=RequestMethod.DELETE)
+	public String deleteEmployees(@PathVariable(value = "employeeId") Long id) {
+		// Delegating the deletion of the employee to the employeeService
+		employeeService.deleteEmployee(id);
+		// Returning a success message indicating that the employee has been successfully deleted
 		return "Employee " + id + " successfully deleted";
 	}
 }
-
-
-
