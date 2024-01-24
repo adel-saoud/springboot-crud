@@ -20,8 +20,11 @@ import com.decathlon.employee.service.EmployeeService;
 public class EmployeeController {
 
 	// Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
-	@Autowired
 	EmployeeService employeeService;
+
+	public EmployeeController(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
 
 	// Mapping an HTTP POST request to create a new employee with the given data
 	@RequestMapping(value="/employees", method=RequestMethod.POST)
