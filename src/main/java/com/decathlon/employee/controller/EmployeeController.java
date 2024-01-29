@@ -23,10 +23,11 @@ import com.decathlon.employee.service.EmployeeService;
 public class EmployeeController {
 
 
-//	@Autowired
+	//	@Autowired
 	// classes depends on other classes or components.
 	// These dependencies are typically injected into the class through either constructor injection or @Autowired annotation.
-	EmployeeService employeeService; // Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
+	// Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
+	EmployeeService employeeService;
 
 
 	//dependencies are explicitly declared in the class's constructor -> makes it clear what the dependencies of a class are right from the beginning + easier to write unit tests
