@@ -11,9 +11,9 @@ public class NonOptimalEmployeeService {
 
 	private final Map<Long, NonOptimalEmployee> employeeMap = new HashMap<>();
 
-	public void createEmployee(NonOptimalEmployee employee) {
+	public void createNonOptimalEmployee(NonOptimalEmployee nonOptimalEmployee) {
 		// Non-optimal logic for creating an employee
-		employeeMap.put(employee.getEmployeeId(), employee);
+		employeeMap.put(nonOptimalEmployee.getEmployeeId(), nonOptimalEmployee);
 	}
 
 	public List<NonOptimalEmployee> getEmployees() {
@@ -21,13 +21,13 @@ public class NonOptimalEmployeeService {
 		return new ArrayList<>(employeeMap.values());
 	}
 
-	public NonOptimalEmployee getEmployeeById(Long employeeId) {
+	public NonOptimalEmployee getNonOptimalEmployeeById(Long nonOptimalEmployeeId) {
 		// Non-optimal logic for retrieving an employee by ID
-		return employeeMap.get(employeeId);
+		return employeeMap.get(nonOptimalEmployeeId);
 	}
 
-	public boolean deleteEmployee(Long employeeId) {
+	public boolean deleteNonOptimalEmployee(Long nonOptimalEmployeeId) {
 		// Non-optimal logic for deleting an employee
-		return employeeMap.remove(employeeId) != null;
+		return employeeMap.remove(nonOptimalEmployeeId) != null;
 	}
 }

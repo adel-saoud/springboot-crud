@@ -8,10 +8,10 @@ import java.util.Map;
 
 public class NonOptimalEmployeeController {
 
-	private final NonOptimalEmployeeService employeeService;
+	private final NonOptimalEmployeeService nonOptimalEmployeeService;
 
-	public NonOptimalEmployeeController(NonOptimalEmployeeService employeeService) {
-		this.employeeService = employeeService;
+	public NonOptimalEmployeeController(NonOptimalEmployeeService nonOptimalEmployeeService) {
+		this.nonOptimalEmployeeService = nonOptimalEmployeeService;
 	}
 
 	public String createEmployee(Map<String, String> employeeData) {
@@ -19,18 +19,18 @@ public class NonOptimalEmployeeController {
 		NonOptimalEmployee employee = new NonOptimalEmployee(employeeData.get("firstName"),
 				employeeData.get("lastName"),
 				employeeData.get("email"));
-		employeeService.createEmployee(employee);
+		nonOptimalEmployeeService.createNonOptimalEmployee(employee);
 		return "Employee created successfully";
 	}
 
 	public List<NonOptimalEmployee> readEmployees() {
 		// Non-optimal logic for retrieving all employees
-		return employeeService.getEmployees();
+		return nonOptimalEmployeeService.getEmployees();
 	}
 
-	public String updateEmployee(Long employeeId, Map<String, String> employeeData) {
+	public String updateEmployee(Long nonOptimalEmployeeId, Map<String, String> employeeData) {
 		// Non-optimal logic for updating an employee
-		NonOptimalEmployee employee = employeeService.getEmployeeById(employeeId);
+		NonOptimalEmployee employee = nonOptimalEmployeeService.getNonOptimalEmployeeById(nonOptimalEmployeeId);
 		if (employee != null) {
 			employee.setFirstName(employeeData.get("firstName"));
 			employee.setLastName(employeeData.get("lastName"));
@@ -41,9 +41,9 @@ public class NonOptimalEmployeeController {
 		}
 	}
 
-	public String deleteEmployees(Long employeeId) {
+	public String deleteEmployees(Long nonOptimalEmployeeId) {
 		// Non-optimal logic for deleting an employee
-		if (employeeService.deleteEmployee(employeeId)) {
+		if (nonOptimalEmployeeService.deleteNonOptimalEmployee(nonOptimalEmployeeId)) {
 			return "Employee deleted successfully";
 		} else {
 			return "Employee not found";

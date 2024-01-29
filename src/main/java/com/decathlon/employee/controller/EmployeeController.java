@@ -2,6 +2,7 @@ package com.decathlon.employee.controller;
 
 import java.util.List;
 
+import com.decathlon.employee.aop.EmployeeValidator;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +23,18 @@ import com.decathlon.employee.service.EmployeeService;
 public class EmployeeController {
 
 
+//	@Autowired
+	// classes depends on other classes or components.
+	// These dependencies are typically injected into the class through either constructor injection or @Autowired annotation.
 	EmployeeService employeeService; // Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
 
+
+	//dependencies are explicitly declared in the class's constructor -> makes it clear what the dependencies of a class are right from the beginning + easier to write unit tests
 	public EmployeeController(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
 
-
+	@EmployeeValidator
 	@PostMapping // Mapping an HTTP POST request to create a new employee with the given data
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
 		// Delegating the creation of the employee to the employeeService and returning the result
@@ -43,6 +49,7 @@ public class EmployeeController {
 	}
 
 
+//	@EmployeeValidator
 	@PutMapping("/{employeeId}") // Mapping an HTTP PUT request to update an existing employee with the given data
 	public Employee updateEmployee(@PathVariable Long employeeId, @Valid @RequestBody Employee employee) {
 		// Delegating the update operation to the employeeService and returning the updated employee
