@@ -16,43 +16,41 @@ import jakarta.validation.Valid;
 import com.decathlon.employee.model.Employee;
 import com.decathlon.employee.service.EmployeeService;
 
-// Annotating the class as a Spring RestController, which handles HTTP requests and responses
-@RestController
 
-// Specifying the base URL path for all the endpoints in this controller
-@RequestMapping("/api/v1/employees")
+@RestController // Annotating the class as a Spring RestController, which handles HTTP requests and responses
+@RequestMapping("/api/v1/employees") // Specifying the base URL path for all the endpoints in this controller
 public class EmployeeController {
 
-	// Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
-	EmployeeService employeeService;
+
+	EmployeeService employeeService; // Injecting the EmployeeService bean into the controller using Spring's @Autowired annotation
 
 	public EmployeeController(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
 
-	// Mapping an HTTP POST request to create a new employee with the given data
-	@PostMapping
+
+	@PostMapping // Mapping an HTTP POST request to create a new employee with the given data
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
 		// Delegating the creation of the employee to the employeeService and returning the result
 		return employeeService.createEmployee(employee);
 	}
 
-	// Mapping an HTTP GET request to retrieve a list of all employees
-	@GetMapping
+
+	@GetMapping // Mapping an HTTP GET request to retrieve a list of all employees
 	public List<Employee> readEmployees() {
 		// Delegating the retrieval of employees to the employeeService and returning the result
 		return employeeService.getEmployees();
 	}
 
-	// Mapping an HTTP PUT request to update an existing employee with the given data
-	@PutMapping("/{employeeId}")
+
+	@PutMapping("/{employeeId}") // Mapping an HTTP PUT request to update an existing employee with the given data
 	public Employee updateEmployee(@PathVariable Long employeeId, @Valid @RequestBody Employee employee) {
 		// Delegating the update operation to the employeeService and returning the updated employee
 		return employeeService.updateEmployee(employeeId, employee);
 	}
 
-	// Mapping an HTTP DELETE request to delete an employee with the specified ID
-	@DeleteMapping(value="/{employeeId}")
+
+	@DeleteMapping(value="/{employeeId}") // Mapping an HTTP DELETE request to delete an employee with the specified ID
 	public String deleteEmployees(@PathVariable Long employeeId) {
 		// Delegating the deletion of the employee to the employeeService
 		employeeService.deleteEmployee(employeeId);
