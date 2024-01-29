@@ -10,7 +10,7 @@ public class NonOptimalEmployee {
 
 	private static Long idCounter = 1L;
 
-	//static = non-changeable (impossible to inherit or override), variable to always store the same value
+	//final = non-changeable (impossible to inherit or override), variable to always store the same value
 	private final Long employeeId;
 	private String firstName;
 	private String lastName;
