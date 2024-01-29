@@ -9,56 +9,24 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "employee")
-@Getter
+@Entity //used to mark the class as a JPA entity. It indicates that the class is an entity and is mapped to a database table.
+@Table(name = "employee") //used to specify the name of the table that the entity is mapped to
+@Getter //generate getters and setters
 @Setter
 public class Employee {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="employee_id")
-    private Long id;
-	
+	@Id //specify the primary key of the entity
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //used to specify the strategy for generating primary keys
+	@Column(name="employee_id") //specify the name of the column that the field is mapped to
+    private Long employeeId;
+
 	@Column(name="first_name")
 	private String firstName;
 	
 	@Column(name="last_name")
 	private String lastName;
 	
-	@Column(name="email_id")
+	@Column(name="email")
 	private String email;
-
-//	public Long getId() {
-//		return id;
-//	}
-//
-//	public void setId(Long id) {
-//		this.id = id;
-//	}
-//
-//	public String getFirstName() {
-//		return firstName;
-//	}
-//
-//	public void setFirstName(String firstName) {
-//		this.firstName = firstName;
-//	}
-//
-//	public String getLastName() {
-//		return lastName;
-//	}
-//
-//	public void setLastName(String lastName) {
-//		this.lastName = lastName;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
 	
 }

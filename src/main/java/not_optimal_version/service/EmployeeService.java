@@ -1,10 +1,10 @@
-package com.decathlon.employee.service;
+package not_optimal_version.service;
+
+import not_optimal_version.model.Employee;
+import not_optimal_version.repository.EmployeeRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import com.decathlon.employee.model.Employee;
-import com.decathlon.employee.repository.EmployeeRepository;
-import org.springframework.stereotype.Service;
 
 // Annotating the class as a Spring Service, indicating that it holds business logic
 @Service
