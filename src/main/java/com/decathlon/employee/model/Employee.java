@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter //generate getters and setters
 @Setter
 public class Employee {
-	
+
 	@Id //specify the primary key of the entity
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //used to specify the strategy for generating primary keys
 	@Column(name="employee_id") //specify the name of the column that the field is mapped to
@@ -28,5 +28,6 @@ public class Employee {
 	
 	@Column(name="email")
 	private String email;
-	
+
+
 }

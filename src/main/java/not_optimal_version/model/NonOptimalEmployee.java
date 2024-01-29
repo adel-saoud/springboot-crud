@@ -8,7 +8,7 @@ public class NonOptimalEmployee {
 	// f.doStuff();
 	//use directly MyClass.doSomething();
 
-	private static Long idCounter = 1L;
+	protected static Long idCounter = 1L;
 
 	//final = non-changeable (impossible to inherit or override), variable to always store the same value
 	private final Long employeeId;
