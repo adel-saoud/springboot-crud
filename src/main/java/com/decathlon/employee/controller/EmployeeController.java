@@ -34,7 +34,7 @@ public class EmployeeController {
 		this.employeeService = employeeService;
 	}
 
-	@EmployeeValidator
+//	@EmployeeValidator
 	@PostMapping // Mapping an HTTP POST request to create a new employee with the given data
 	public Employee createEmployee(@Valid @RequestBody Employee employee) {
 		// Delegating the creation of the employee to the employeeService and returning the result
